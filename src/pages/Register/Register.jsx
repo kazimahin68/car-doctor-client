@@ -5,26 +5,27 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 
-const Login = () => {
+const Register = () => {
 
-    const {logIn} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const [success, setSuccess] = useState('')
 
-    const handleLogin = event =>{
+    const handleCreateUser = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        console.log(name, email, password)
 
-        logIn(email, password)
-        .then(() =>{
-            setSuccess('You are successfully logged in');
-            form.reset()
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+        createUser(email, password)
+            .then(() => {
+                setSuccess('You are successfully register');
+                form.reset()
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
@@ -34,22 +35,25 @@ const Login = () => {
                     <img src={img} className="rounded-lg" />
                 </div>
                 <div className="card w-full md:w-3/4 xl:w-1/2 shadow-2xl bg-base-100">
-                    <h1 className="text-5xl font-bold pt-10 text-center">Login</h1>
-                    <form onSubmit={handleLogin} className="card-body">
+                    <h1 className="text-5xl font-bold pt-10 text-center">Sign Up</h1>
+                    <form onSubmit={handleCreateUser} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" name='email' placeholder="Email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+                            <input type="password" name='password' placeholder="Password" className="input input-bordered" />
                             <p className='text-green-600'>{success}</p>
                         </div>
                         <div className="form-control mt-6">
@@ -63,7 +67,7 @@ const Login = () => {
                             <button className='btn btn-outline rounded-full bg-base-200 border-none hover:bg-orange-600 text-[#0A66C2]'><FaLinkedinIn></FaLinkedinIn></button>
                             <button className='btn btn-outline rounded-full bg-base-200 border-none hover:bg-orange-600 text-[#31AA52]'><FaGoogle></FaGoogle></button>
                         </div>
-                        <p className='text-center mb-5'>New to this site? <Link to='/register' className='text-orange-600 font-bold'>Register</Link></p>
+                        <p className='text-center mb-5'>Already have an account? <Link to='/login' className='text-orange-600 font-bold'>Login</Link></p>
                     </div>
                 </div>
             </div>
@@ -71,4 +75,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

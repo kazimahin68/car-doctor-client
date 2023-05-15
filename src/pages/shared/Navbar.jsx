@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Navbar = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user)
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><a className="justify-between">About</a></li>
