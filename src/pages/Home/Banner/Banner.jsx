@@ -7,7 +7,7 @@ import img6 from '../../../assets/images/banner/6.jpg';
 
 const Banner = () => {
     return (
-        <div className="carousel w-full h-full xl:h-[700px]">
+        <div className="carousel w-full h-full xl:h-[650px]">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={img1} className="w-full rounded-xl" />
                 <div className="absolute flex md:right-20 right-5 bottom-5 md:bottom-20 space-x-8 z-10">
@@ -20,7 +20,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 '>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12 '>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>
@@ -39,7 +39,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4'>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12'>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>
@@ -58,7 +58,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4'>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12'>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>
@@ -77,7 +77,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4'>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12'>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>
@@ -96,7 +96,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4'>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12'>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>
@@ -115,7 +115,7 @@ const Banner = () => {
                             Affordable Price For Car Servicing
                         </h2>
                         <p className='mb-4'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4'>
+                        <div className='flex flex-col md:flex-row justify-between md:space-x-3 space-y-2 md:space-y-0 w-3/4 md:w-11/12'>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Discover More</button>
                             <button className='btn btn-outline hover:bg-orange-500 text-white w-1/2'>Latest Project</button>
                         </div>

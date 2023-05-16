@@ -1,14 +1,16 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import img from '../../assets/images/login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate();
 
     const handleCreateUser = event => {
         event.preventDefault();
@@ -16,16 +18,32 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        // console.log(name, email, password)
 
         createUser(email, password)
-            .then(() => {
+            .then((result) => {
+                // console.log(result)
+                const registeredUser = result.user;
+                userProfileUpdate(registeredUser, name)
                 setSuccess('You are successfully register');
-                form.reset()
+                form.reset();
+                navigate('/')
+
             })
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    // Update User Profile
+    const userProfileUpdate = (user, name) =>{
+        updateProfile(user, {
+            displayName : name,
+        })
+        .then(() => {})
+        .catch(error =>{
+            console.log(error)
+        })
     }
 
     return (
@@ -39,21 +57,21 @@ const Register = () => {
                     <form onSubmit={handleCreateUser} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="Email" className="input input-bordered" />
+                            <input type="email" name='email' placeholder="Email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="Password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="Password" className="input input-bordered" required/>
                             <p className='text-green-600'>{success}</p>
                         </div>
                         <div className="form-control mt-6">

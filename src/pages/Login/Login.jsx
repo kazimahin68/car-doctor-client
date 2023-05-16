@@ -1,6 +1,6 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import img from '../../assets/images/login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -8,7 +8,8 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Login = () => {
 
     const {logIn} = useContext(AuthContext);
-    const [success, setSuccess] = useState('')
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate()
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -20,7 +21,8 @@ const Login = () => {
         logIn(email, password)
         .then(() =>{
             setSuccess('You are successfully logged in');
-            form.reset()
+            form.reset();
+            navigate('/')
         })
         .catch(error =>{
             console.log(error)

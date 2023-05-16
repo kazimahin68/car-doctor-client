@@ -5,8 +5,8 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext);
-    console.log(user)
+    const {user, logOut} = useContext(AuthContext);
+    console.log(user);
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><a className="justify-between">About</a></li>
@@ -14,6 +14,14 @@ const Navbar = () => {
         <li><a>Blog</a></li>
         <li><a>Contact</a></li>
     </>
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(() =>{})
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <div className="navbar bg-base-100 rounded-xl mb-10 mx-auto">
             <div className="navbar-start justify-between md:justify-normal">
@@ -25,15 +33,20 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl"><img className='h-3/4' src={logo} alt="" /></a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='h-3/4' src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex items-center">
                 <ul className="menu menu-horizontal px-1 font-bold">
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Get started</a>
+            <div className="navbar-end space-x-4">
+                <p className='font-semibold'>
+                    {user?.displayName}
+                </p>
+                {
+                    user? <button onClick={handleLogOut} className='btn bg-orange-600 border-none'>Log Out</button> : <Link to='/login' className="btn bg-orange-600 border-none">Login</Link>
+                }
             </div>
         </div>
     );
